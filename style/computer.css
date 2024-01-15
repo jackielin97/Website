@@ -1,0 +1,33 @@
+.computerList {
+    background-color: lightgreen;
+    border-radius: 0.5rem;
+    padding:0.5rem;
+    margin:0.5rem;
+}
+.computerList h2 {
+    margin:0rem;
+}
+.computerList .computer {
+    background-color: lightgrey;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+.computerList .computer p {
+    margin-top: 0rem;
+}
+.computerList .computer button { 
+    /* styles all buttons that are inside of elements classed "car" 
+       that are inside of elements classed "carList" */
+    background-color:lightblue;
+}
+
+.image-container img {
+    max-width: 50%; /* Set the maximum width to 100% of its container */
+    height: auto; /* Maintain the aspect ratio */
+  }
+
+  .img-size {
+    width: 200px; /* Set your desired width */
+    height: 150px; /* Set your desired height */
+}

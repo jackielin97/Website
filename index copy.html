@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- HTML comments like this... -->
+<html>
+
+<head>
+    <title>Title Nav Using Flexbox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="icons/more_icons/Computer.png" />
+
+    <link href="style/blog.css" rel="stylesheet" type="text/css" />
+    <link href="style/dropDown.css" rel="stylesheet" type="text/css" />
+    <link href="style/myDropDown.css" rel="stylesheet" type="text/css" />
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <link href="style/users.css" rel="stylesheet" type="text/css" />
+
+    <!-- You need these two CDNs to use react, their version numbers must match -->
+    <!-- changed version on 10-20-2022 from 16.3.1 to 18 for react and react-dom -->
+    <script src='https://unpkg.com/react@18/umd/react.production.min.js'></script>
+    <script src='https://unpkg.com/react-dom@18/umd/react-dom.production.min.js'></script>
+
+    <!-- This next CDN lets you use JSX (looks like HTML tags in JS) -->
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+
+    <!-- This lets you use React Routing -->
+    <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- It's best to put the reusable JS first in case any other JS code 
+             needs to reference them. -->
+    <script src="js/reusable/dropDownFW.js"></script>
+
+    <!-- Followed by the Content Generating Functions, either Plain or React -->
+    <script src="js/content/PlainBlog.js"></script>
+
+    <!-- Because these React components all use JSX, you need the type="text=babel" for each -->
+    <script type="text/babel" src="js/React/Home.js"></script>
+    <script type="text/babel" src="js/React/ConvertEle.js"></script>
+    <script type="text/babel" src="js/React/MakeComputer.js"></script>
+    <script type="text/babel" src="js/React/Users.js"></script>
+
+
+    <script type="text/babel">
+
+        "use strict";
+
+        dropDownFW({
+            dropHeaderStyle: "dropHeader",
+            dropContentStyle: "dropContent",
+            showStyle: "show",
+            hideStyle: "hide"
+        });
+
+        const Link = ReactRouterDOM.Link;
+        const Route = ReactRouterDOM.Route;
+
+        const App = () => (
+            <ReactRouterDOM.HashRouter>
+
+                <div id="titleNav">
+                    <div id="title">
+                        Jackie Lin's Computer Shop
+                    </div>
+                    <div id="nav">
+                        <div class="dropDown">
+                            <Link to="/home">Home</Link>
+                        </div>
+
+                        <div class="dropDown">
+                            <div class="dropHeader">Search</div>
+                            <div class="dropContent">
+                                <Link to="/users">Users</Link> <br />
+                                <Link to="/MakeComputer">Computer</Link> <br />
+                            </div>
+                        </div>
+
+                        <div class="dropDown">
+                            <Link to="/blog">Blog (not React)</Link>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content">
+                    <Route path="/" exact component={Home} />
+                    <Route path="/home" component={Home} />
+                    <Route path="/users" component={Users} />
+                    <Route path="/MakeComputer" component={()=> <ConvertEle ele={MakeComputer()}/>} />
+
+                    <Route path="/MakeComputer" component={MakeComputer} />
+                    <Route path="/blog" component={ConvertBlog} />
+                </div>
+
+                <div id="footer">
+                    [Jackie Lin]
+                </div>
+
+            </ReactRouterDOM.HashRouter>
+        );
+        <div id='Gpu1'>  </div>
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+
+        function ConvertBlog() {
+            // ConvertEle converts a Plain DOM element (e.g., one created with plain JS
+            // no React) into a React component that can be shown thru React Routing.
+            return <ConvertEle ele={PlainBlog()} />
+        }
+
+
+        ReactDOM.render(
+            <MakeComputer theGpu="sd"/>,
+            document.getElementById("Gpu1")
+        )
+    </script>
+
+</body>
+
+
+
+</html>

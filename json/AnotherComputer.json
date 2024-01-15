@@ -1,0 +1,30 @@
+[
+    {
+        "Gpu":"Gtx120",
+        "Cpu":"Cpu100",
+        "Price":"10000$",
+        "DelieverDate":"10/15/2012",
+
+        "pic":"https://png.pngtree.com/element_our/20200610/ourmid/pngtree-computer-screen-image_2247840.jpg"
+    },
+    
+    {"Gpu":"Gtx1200",
+    "Cpu":"CPU1000",
+    "Price": "2000$",
+    "DelieverDate":"10/15/2011",
+
+    "pic": "pic/GamingComputer.png" 
+    },
+    
+    {"Gpu":"RTX4000"
+    ,"Cpu":"CPU%9",
+   
+    "Price":"120$",
+    "DelieverDate":"1/11/2023",
+    "pic": "https://freepngimg.com/thumb/computer/32741-5-gaming-computer-image-thumb.png"
+    }
+    
+    
+    
+    
+    ]
